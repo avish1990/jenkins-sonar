@@ -23,7 +23,7 @@ def lambda_handler(event, context):
     commandclose  = ['iptables -I INPUT -p tcp --dport 8080 -j DROP']	
 	ec2 = boto3.client('ec2')
     response = ec2.describe_instances()
-    for r in response['Reservations']:
+      for r in response['Reservations']:
       for instance in r['Instances']:  
 	
         if message.lower() == 'start':
