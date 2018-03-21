@@ -13,6 +13,14 @@ def lambda_handler(event, context):
     documentName = 'AWS-RunShellScript'
     commandopen = ['iptables -I INPUT -p tcp --dport 8080 -j ACCEPT']
     commandclose  = ['iptables -I INPUT -p tcp --dport 8080 -j DROP']
+    ssm = boto3.client('ssm')
+    message = event['Records'][0]['Sns']['Message']
+    documentName = 'AWS-RunShellScript'
+    commandopen = ['iptables -I INPUT -p tcp --dport 8080 -j ACCEPT']
+    commandclose  = ['iptables -I INPUT -p tcp --dport 8080 -j DROP']
+    documentName = 'AWS-RunShellScript'
+    commandopen = ['iptables -I INPUT -p tcp --dport 8080 -j ACCEPT']
+    commandclose  = ['iptables -I INPUT -p tcp --dport 8080 -j DROP']	
 	ec2 = boto3.client('ec2')
     response = ec2.describe_instances()
     for r in response['Reservations']:
